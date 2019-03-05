@@ -1,6 +1,11 @@
 class MessagesController < ApplicationController
   before_action :set_message, only: [:show, :edit, :update, :destroy]
 
+  def last
+    @message = Message.last
+    render plain: @message.body
+  end
+
   # GET /messages
   # GET /messages.json
   def index
